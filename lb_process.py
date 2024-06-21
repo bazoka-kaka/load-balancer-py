@@ -10,9 +10,11 @@ from http import HttpServer
 class BackendList:
 	def __init__(self):
 		self.servers=[]
-		self.servers.append(('127.0.0.1',8000))
-		self.servers.append(('127.0.0.1',8001))
-		self.servers.append(('127.0.0.1',8002))
+		self.servers.append(('127.0.0.1',5000))
+		self.servers.append(('127.0.0.1',5001))
+		self.servers.append(('127.0.0.1',5002))
+		self.servers.append(('127.0.0.1',5003))
+		self.servers.append(('127.0.0.1',5004))
 #		self.servers.append(('127.0.0.1',9005))
 		self.current=0
 	def getserver(self):
@@ -61,7 +63,7 @@ def Server():
 	my_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
 	backend = BackendList()
 
-	my_socket.bind(('0.0.0.0', 44444))
+	my_socket.bind(('127.0.0.1', 44444))
 	my_socket.listen(1)
 
 	with ProcessPoolExecutor(20) as executor:

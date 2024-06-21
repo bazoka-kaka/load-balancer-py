@@ -73,7 +73,6 @@ class HttpServer:
 			return self.response(200,'OK','santai saja',dict())
 
 
-		object_address=object_address[1:]
 		if thedir+object_address not in files:
 			return self.response(404,'Not Found','',{})
 		fp = open(thedir+object_address,'rb') #rb => artinya adalah read dalam bentuk binary
@@ -97,27 +96,12 @@ class HttpServer:
 #>>> ext = os.path.splitext('/ak/52.png')
 
 if __name__=="__main__":
-	httpserver = HttpServer()
-	d = httpserver.proses('GET testing.txt HTTP/1.0')
-	print(d)
-	d = httpserver.proses('GET donalbebek.jpg HTTP/1.0')
-	print(d)
+  httpserver = HttpServer()
+  d = httpserver.proses('GET testing.txt HTTP/1.0')
+  print(d)
+  d = httpserver.proses('GET pokijan.jpg HTTP/1.0')
+  # print(d)
 	#d = httpserver.http_get('testing2.txt',{})
 	#print(d)
-#	d = httpserver.http_get('testing.txt')
-#	print(d)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	# d = httpserver.http_get('testing.txt')
+	# print(d)
